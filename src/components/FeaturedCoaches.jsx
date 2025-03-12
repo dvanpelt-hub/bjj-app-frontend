@@ -1,0 +1,27 @@
+import React from "react";
+import { Image } from "antd";
+import Coach from "../assets/coach.png";
+
+const FeaturedCoaches = () => {
+  return (
+    <div>
+      <h3>Featured Coaches</h3>
+      <ul className="flex justify-around">
+        <li className="bg-[#2C3033] m-2 text-sm">
+          <Image src={Coach} />
+        </li>
+        <li className="bg-[#2C3033] m-2">
+          <Image src={Coach} />
+        </li>
+        <li className="bg-[#2C3033] m-2">
+          <Image src={Coach} />
+        </li>
+        <li className="bg-[#2C3033] m-2">
+          <Image src={Coach} />
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default FeaturedCoaches;
