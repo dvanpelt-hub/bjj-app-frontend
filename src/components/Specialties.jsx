@@ -20,7 +20,7 @@ const Specialties = () => {
       <ul className="flex justify-around">
         <Link
           to="/search-coaches"
-          className="bg-[#2C3033]"
+          className="bg-[#2C3033] m-2"
           onClick={() => handleSpecialty("gi")}
         >
           <Image src={Cat1} className="w-full h-full"></Image>Gi
