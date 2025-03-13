@@ -19,6 +19,4 @@ const selectedCoachSlice = createSlice({
 
 export const { setSelectedCoach, clearSelectedCoach } =
   selectedCoachSlice.actions;
-export default {
-  selectedCoachReducer: selectedCoachSlice.reducer,
-};
+export default selectedCoachSlice.reducer

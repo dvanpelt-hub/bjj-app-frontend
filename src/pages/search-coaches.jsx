@@ -8,61 +8,24 @@ import Coach1 from "../assets/coach.png";
 
 const { Search } = Input;
 
-const coaches = [
-  {
-    id: 13213213,
-    name: "Craig Blows",
-    price: "$9",
-    image: Coach1,
-    category: ["no-gi"],
-  },
-  {
-    id: 234234232,
-    name: "Adam Hightower",
-    price: "$9",
-    image: Coach1,
-    category: ["no-gi", "leg-locks"],
-  },
-  {
-    id: 3345345345,
-    name: "Dan Maven",
-    price: "$9",
-    image: Coach1,
-    category: ["gi", "takedowns"],
-  },
-  {
-    id: 4456456654,
-    name: "Achal Pinamdar",
-    price: "$9",
-    image: Coach1,
-    category: ["no-gi", "leg-locks"],
-  },
-  {
-    id: 567886875,
-    name: "Keenan Corn",
-    price: "$9",
-    image: Coach1,
-    category: ["gi"],
-  },
-];
-
 const SearchCoaches = () => {
-  const specialty = useSelector((state) => state.filter.specialty);
+  const coachSpecialty = useSelector((state) => state.filter.specialty);
+  const coaches = useSelector((state) => state.coaches.coaches);
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredCoaches =
     // Checks search name, search category, or selected category
-    searchTerm.length > 0 || specialty.length > 0
+    searchTerm.length > 0 || coachSpecialty.length > 0
       ? coaches.filter(
           (coach) =>
             (searchTerm.length > 0
               ? coach.name.toLowerCase().includes(searchTerm.toLowerCase())
               : null) ||
             (searchTerm.length > 0
-              ? coach.category.includes(searchTerm.toLowerCase())
+              ? coach.speciality.includes(searchTerm.toLowerCase())
               : null) ||
-            (specialty.length > 0 ? coach.category.includes(specialty) : null)
+            (coachSpecialty.length > 0 ? coach.speciality.includes(coachSpecialty) : null)
         )
       : coaches;
 
@@ -99,22 +62,26 @@ const SearchCoaches = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="mb-6"
         />
-        {renderTags(specialty)}
+        {renderTags(coachSpecialty)}
         {/* coach Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2r sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredCoaches.length > 0 ? (
             filteredCoaches.map((coach) => (
-              <Link to={`/coach/${coach.id}`}>
+              <Link to={`/coach/${coach.uuid}`}>
                 <Card
-                  key={coach.id}
+                  key={coach.uuid}
                   hoverable
                   cover={
-                    <Image alt={coach.name} src={coach.image} className="p-4" />
+                    <Image alt={coach.name} src={Coach1} className="p-4" />
                   }
                   className="rounded-lg shadow-md justify-items-center"
                 >
                   <h3 className="text-lg font-semibold">{coach.name}</h3>
-                  <p className="text-gray-500">{coach.price}</p>
+                  <p>{coach.bio}</p>
+                  <p><b>Achievements:</b> {coach.achievements}</p>
+                  <p><b>Speciality:</b> {coach.speciality}</p>
+                  <p><b>Belt:</b> {coach.belt_level}</p>
+                  <p className="text-gray-500">${coach.price_per_feedback}</p>
                 </Card>
               </Link>
             ))
