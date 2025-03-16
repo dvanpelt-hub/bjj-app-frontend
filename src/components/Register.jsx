@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   AutoComplete,
   Button,
@@ -10,36 +10,36 @@ import {
   InputNumber,
   Row,
   Select,
-} from 'antd';
+} from "antd";
 const { Option } = Select;
 const residences = [
   {
-    value: 'zhejiang',
-    label: 'Zhejiang',
+    value: "zhejiang",
+    label: "Zhejiang",
     children: [
       {
-        value: 'hangzhou',
-        label: 'Hangzhou',
+        value: "hangzhou",
+        label: "Hangzhou",
         children: [
           {
-            value: 'xihu',
-            label: 'West Lake',
+            value: "xihu",
+            label: "West Lake",
           },
         ],
       },
     ],
   },
   {
-    value: 'jiangsu',
-    label: 'Jiangsu',
+    value: "jiangsu",
+    label: "Jiangsu",
     children: [
       {
-        value: 'nanjing',
-        label: 'Nanjing',
+        value: "nanjing",
+        label: "Nanjing",
         children: [
           {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
+            value: "zhonghuamen",
+            label: "Zhong Hua Men",
           },
         ],
       },
@@ -78,10 +78,9 @@ const tailFormItemLayout = {
 };
 
 const Register = () => {
-
   const [form] = Form.useForm();
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    console.log("Received values of form: ", values);
   };
 
   const prefixSelector = (
@@ -96,7 +95,7 @@ const Register = () => {
       </Select>
     </Form.Item>
   );
-  
+
   const suffixSelector = (
     <Form.Item name="suffix" noStyle>
       <Select
@@ -116,7 +115,9 @@ const Register = () => {
     if (!value) {
       setAutoCompleteResult([]);
     } else {
-      setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`));
+      setAutoCompleteResult(
+        [".com", ".org", ".net"].map((domain) => `${value}${domain}`)
+      );
     }
   };
 
@@ -124,7 +125,7 @@ const Register = () => {
     label: website,
     value: website,
   }));
-  
+
   return (
     <Form
       {...formItemLayout}
@@ -132,8 +133,8 @@ const Register = () => {
       name="register"
       onFinish={onFinish}
       initialValues={{
-        residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
+        residence: ["zhejiang", "hangzhou", "xihu"],
+        prefix: "86",
       }}
       style={{
         maxWidth: 600,
@@ -145,12 +146,12 @@ const Register = () => {
         label="E-mail"
         rules={[
           {
-            type: 'email',
-            message: 'The input is not valid E-mail!',
+            type: "email",
+            message: "The input is not valid E-mail!",
           },
           {
             required: true,
-            message: 'Please input your E-mail!',
+            message: "Please input your E-mail!",
           },
         ]}
       >
@@ -163,7 +164,7 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: "Please input your password!",
           },
         ]}
         hasFeedback
@@ -174,19 +175,21 @@ const Register = () => {
       <Form.Item
         name="confirm"
         label="Confirm Password"
-        dependencies={['password']}
+        dependencies={["password"]}
         hasFeedback
         rules={[
           {
             required: true,
-            message: 'Please confirm your password!',
+            message: "Please confirm your password!",
           },
           ({ getFieldValue }) => ({
             validator(_, value) {
-              if (!value || getFieldValue('password') === value) {
+              if (!value || getFieldValue("password") === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('The new password that you entered do not match!'));
+              return Promise.reject(
+                new Error("The new password that you entered do not match!")
+              );
             },
           }),
         ]}
@@ -201,7 +204,7 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your nickname!',
+            message: "Please input your nickname!",
             whitespace: true,
           },
         ]}
@@ -214,9 +217,9 @@ const Register = () => {
         label="Habitual Residence"
         rules={[
           {
-            type: 'array',
+            type: "array",
             required: true,
-            message: 'Please select your habitual residence!',
+            message: "Please select your habitual residence!",
           },
         ]}
       >
@@ -229,14 +232,14 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your phone number!',
+            message: "Please input your phone number!",
           },
         ]}
       >
         <Input
           addonBefore={prefixSelector}
           style={{
-            width: '100%',
+            width: "100%",
           }}
         />
       </Form.Item>
@@ -247,14 +250,14 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input donation amount!',
+            message: "Please input donation amount!",
           },
         ]}
       >
         <InputNumber
           addonAfter={suffixSelector}
           style={{
-            width: '100%',
+            width: "100%",
           }}
         />
       </Form.Item>
@@ -265,11 +268,15 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input website!',
+            message: "Please input website!",
           },
         ]}
       >
-        <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
+        <AutoComplete
+          options={websiteOptions}
+          onChange={onWebsiteChange}
+          placeholder="website"
+        >
           <Input />
         </AutoComplete>
       </Form.Item>
@@ -280,7 +287,7 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input Intro',
+            message: "Please input Intro",
           },
         ]}
       >
@@ -293,7 +300,7 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please select gender!',
+            message: "Please select gender!",
           },
         ]}
       >
@@ -304,7 +311,10 @@ const Register = () => {
         </Select>
       </Form.Item>
 
-      <Form.Item label="Captcha" extra="We must make sure that your are a human.">
+      <Form.Item
+        label="Captcha"
+        extra="We must make sure that your are a human."
+      >
         <Row gutter={8}>
           <Col span={12}>
             <Form.Item
@@ -313,7 +323,7 @@ const Register = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input the captcha you got!',
+                  message: "Please input the captcha you got!",
                 },
               ]}
             >
@@ -332,7 +342,9 @@ const Register = () => {
         rules={[
           {
             validator: (_, value) =>
-              value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+              value
+                ? Promise.resolve()
+                : Promise.reject(new Error("Should accept agreement")),
           },
         ]}
         {...tailFormItemLayout}
