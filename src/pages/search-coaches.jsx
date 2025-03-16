@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearFilter } from "../redux/slices/filterSlice";
 import { Link } from "react-router";
-import { Input, Card, Image, Tag } from "antd";
+import { Input, Tag } from "antd";
 import Header from "../components/Header";
-import Coach1 from "../assets/coach.png";
+import CoachProfileCard from "../components/CoachProfileCard";
+import coachProfile from "../assets/coachProfile.png";
 
 const { Search } = Input;
 
@@ -25,7 +26,9 @@ const SearchCoaches = () => {
             (searchTerm.length > 0
               ? coach.speciality.includes(searchTerm.toLowerCase())
               : null) ||
-            (coachSpecialty.length > 0 ? coach.speciality.includes(coachSpecialty) : null)
+            (coachSpecialty.length > 0
+              ? coach.speciality.includes(coachSpecialty)
+              : null)
         )
       : coaches;
 
@@ -52,7 +55,6 @@ const SearchCoaches = () => {
       <Header />
       <div className="max-w-4xl mx-auto p-6">
         <h1 className="text-3xl font-bold mb-4 text-center">Coach Listings</h1>
-
         {/* Search Bar */}
         <Search
           placeholder="Search coaches..."
@@ -68,21 +70,11 @@ const SearchCoaches = () => {
           {filteredCoaches.length > 0 ? (
             filteredCoaches.map((coach) => (
               <Link to={`/coach/${coach.uuid}`}>
-                <Card
+                <CoachProfileCard
                   key={coach.uuid}
-                  hoverable
-                  cover={
-                    <Image alt={coach.name} src={Coach1} className="p-4" />
-                  }
-                  className="rounded-lg shadow-md justify-items-center"
-                >
-                  <h3 className="text-lg font-semibold">{coach.name}</h3>
-                  <p>{coach.bio}</p>
-                  <p><b>Achievements:</b> {coach.achievements}</p>
-                  <p><b>Speciality:</b> {coach.speciality}</p>
-                  <p><b>Belt:</b> {coach.belt_level}</p>
-                  <p className="text-gray-500">${coach.price_per_feedback}</p>
-                </Card>
+                  image={coachProfile}
+                  coachInfo={coach}
+                />
               </Link>
             ))
           ) : (
