@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  specialty: "", // Default filter value
+  specialty: "", // default filter value
 };
 
 const filterSlice = createSlice({
@@ -9,10 +9,10 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setFilter: (state, action) => {
-      state.specialty = action.payload; // Update the search query
+      state.specialty = action.payload; // update the search query
     },
     clearFilter: (state) => {
-      state.specialty = ""; // Reset the filter
+      state.specialty = ""; // reset the filter
     },
   },
 });

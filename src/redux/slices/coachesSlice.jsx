@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  coaches: [], // Default list of coaches
+  coaches: [], // default list of coaches
 };
 
 const coachesSlice = createSlice({

@@ -15,7 +15,7 @@ const ModernTag = ({ label, color = "blue", closable = false, onClose }) => {
   return (
     <Tag
       className={`flex items-center gap-2 px-3 py-1 rounded-2xl shadow-sm text-sm font-medium ${tagColors[color]} border-none`}
-      closable={false} // Use custom close button
+      closable={false} // use custom close button
     >
       {label}
       {closable && (

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  selectedCoach: {}, // Default coach info
+  selectedCoach: {}, // default coach info
 };
 
 const selectedCoachSlice = createSlice({

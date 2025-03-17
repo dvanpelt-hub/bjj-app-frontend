@@ -16,7 +16,7 @@ const SearchCoaches = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredCoaches =
-    // Checks search name, search category, or selected category
+    // checks search name, search category, or selected category
     searchTerm.length > 0 || coachSpecialty.length > 0
       ? coaches.filter(
           (coach) =>
