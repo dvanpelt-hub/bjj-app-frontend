@@ -6,7 +6,6 @@ const Coach = () => {
 
   return (
     <div>
-      <Header />
       <CoachProfilePage />
     </div>
   );

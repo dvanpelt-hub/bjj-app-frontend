@@ -24,14 +24,12 @@ const home = () => {
     <div>
       {currentUser.length > 0 ? (
         <>
-          <Header />
           <Welcome />
           <Specialties />
           <FeaturedCoaches />
         </>
       ) : (
         <>
-          <Header />
           <Login />
         </>
       )}
