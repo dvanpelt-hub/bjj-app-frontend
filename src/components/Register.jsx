@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Select, DatePicker } from "antd";
 import dayjs from "dayjs";
 import AsyncSelect from "react-select/async";
+import axios from "axios";
 
 const fetchLocations = async (inputValue) => {
   if (!inputValue) return [];
@@ -20,13 +21,33 @@ const fetchLocations = async (inputValue) => {
 };
 
 const RegistrationForm = () => {
-  // provide access to form instance
+  // provide access to form instance and built-in methods
   const [form] = Form.useForm();
   const [location, setLocation] = useState(null);
 
   const onFinish = (values) => {
     console.log("Form values:", values);
   };
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch("/api/v1/users");
+      const text = await response.text();
+      console.log('raw response', text)
+      if (!response.ok) {
+        throw new Error("failed to fetch users")
+      } 
+      // const data = await response.json();
+      // console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    fetchUsers()
+  }, [])
+
 
   return (
     // when form complete, call onFinish to set redux
