@@ -13,7 +13,7 @@ const usersSlice = createSlice({
     error: null,
   },
   reducers: {
-    clearUsers: (state) => {
+    clearUsers: (state) => { // clear users state and reset status'
       state.users = [];
       state.status = "idle";
       state.error = null;
