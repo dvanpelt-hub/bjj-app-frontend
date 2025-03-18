@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Select, DatePicker } from "antd";
-import dayjs from "dayjs";
 import AsyncSelect from "react-select/async";
-import axios from "axios";
 
 const fetchLocations = async (inputValue) => {
   if (!inputValue) return [];

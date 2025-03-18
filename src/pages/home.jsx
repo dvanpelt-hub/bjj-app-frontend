@@ -22,7 +22,12 @@ const home = () => {
 
   return (
     <div>
-      {currentUser.length > 0 ? (
+       <>
+          <Welcome />
+          <Specialties />
+          <FeaturedCoaches />
+        </>
+      {/* {currentUser.length > 0 ? (
         <>
           <Welcome />
           <Specialties />
@@ -32,7 +37,7 @@ const home = () => {
         <>
           <Login />
         </>
-      )}
+      )} */}
     </div>
   );
 };
