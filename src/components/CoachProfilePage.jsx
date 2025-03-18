@@ -3,6 +3,7 @@ import { Avatar, Button, Tag } from "antd";
 import { MailOutlined, InstagramOutlined, PhoneOutlined } from "@ant-design/icons";
 import {useSelector} from "react-redux"
 import coachProfile from "../assets/coachProfile.png";
+import RequestModal from "./RequestModal"
 
 const CoachProfile = () => {
   const selectedCoach = useSelector((state) => state.selectedCoach.selectedCoach)
@@ -42,6 +43,9 @@ const CoachProfile = () => {
           <Button type="primary" shape="circle" icon={<MailOutlined />} className="bg-blue-600"/>
           <Button type="primary" shape="circle" icon={<InstagramOutlined />} className="bg-pink-600"/>
           <Button type="primary" shape="circle" icon={<PhoneOutlined />} className="bg-green-600"/>
+        </div>
+        <div>
+          <RequestModal />
         </div>
       </div>
     </div>
