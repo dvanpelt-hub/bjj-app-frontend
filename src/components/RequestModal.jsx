@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
+import VideoUpload from "./VideoUpload"
 
 const RequestModal = () => {
   const [open, setOpen] = useState(false);
@@ -41,7 +42,8 @@ const RequestModal = () => {
         onCancel={handleCancel}
       >
         <p>Upload video</p>
-        <input type="file" accept="video/*" onChange={"handleFileChange"} className="pointer"/>
+        {/* <input type="file" accept="video/*" onChange={"handleFileChange"} className="pointer"/> */}
+        <VideoUpload />
         <div className="mt-3">
         <p>Enter message</p>
         <input type="text" className="border border-slate-400 w-full h-20"></input>
