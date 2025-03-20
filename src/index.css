@@ -4,29 +4,10 @@
 @import "@fontsource/roboto/500.css";
 @import "@fontsource/roboto/700.css";
 
-@font-face {
-  font-family: 'HomeVideo';
-  src: url('./assets/fonts/HomeVideo-BLG6G.ttf') format('truetype');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'HomeVideoBold';
-  src: url('./assets/fonts/HomeVideoBold-R90Dv.ttf') format('truetype');
-  font-weight: bold;
-}
-
-.font-home-video {
-  font-family: 'HomeVideo', sans-serif;
-}
-
-.font-home-video-bold {
-  font-family: 'HomeVideoBold', sans-serif;
-}
 :root {
-  /* font-family: "Roboto"; */
+  font-family: "Roboto";
   line-height: 1.5;
-  /* font-weight: 400; */
+  font-weight: 400;
 
   color-scheme: light dark;
   background-color: #191a1b;

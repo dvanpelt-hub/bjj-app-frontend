@@ -2,11 +2,12 @@ import React from "react";
 // import HomepageBanner from "../assets/b&w_homepage.mp4"
 // import HomepageBanner from "../assets/film1_homepage.mp4"
 import HomepageBanner from "../assets/videos/japanese_VHS1_homepage.mp4"
+import "./VideoContainer.css"
 
 const VideoContainer = () => {
   return (
     <div className="relative w-full h-180 overflow-hidden">
-      {/* Background Video */}
+      {/* video background */}
       <video
         autoPlay
         loop
@@ -18,8 +19,8 @@ const VideoContainer = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Overlay Content */}
-      <div className="absolute inset-0 flex mt-20 flex-col items-center justify-center bg-opacity-50 text-[#16aa16] text-center px-4 z-10 font-home-video">
+      {/* overlay */}
+      <div className="absolute inset-0 flex mt-60 flex-col items-center justify-center bg-opacity-50 text-[#000000] text-center px-4 z-10 font-home-video-bold">
         <h1 className="text-4xl md:text-6xl font-bold">
           Welcome to BJJ Review
         </h1>
