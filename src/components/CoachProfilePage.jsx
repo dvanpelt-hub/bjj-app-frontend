@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar, Button, Tag } from "antd";
 import { MailOutlined, InstagramOutlined, PhoneOutlined } from "@ant-design/icons";
 import {useSelector} from "react-redux"
-import coachProfile from "../assets/coachProfile.png";
+import coachProfile from "../assets/images/coachProfile.png";
 import RequestModal from "./RequestModal"
 
 const CoachProfile = () => {

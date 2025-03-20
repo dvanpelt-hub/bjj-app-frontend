@@ -3,9 +3,9 @@ import { Link } from "react-router";
 import { Image } from "antd";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../redux/slices/filterSlice";
-import Cat1 from "../assets/Cat1.png";
-import Cat2 from "../assets/Cat2.png";
-import Cat3 from "../assets/Cat3.png";
+import Cat1 from "../assets/images/Cat1.png";
+import Cat2 from "../assets/images/Cat2.png";
+import Cat3 from "../assets/images/Cat3.png";
 
 const Specialties = () => {
   const dispatch = useDispatch();

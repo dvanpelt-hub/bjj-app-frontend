@@ -1,7 +1,7 @@
 import React from "react";
 // import HomepageBanner from "../assets/b&w_homepage.mp4"
 // import HomepageBanner from "../assets/film1_homepage.mp4"
-import HomepageBanner from "../assets/japanese_VHS1_homepage.mp4"
+import HomepageBanner from "../assets/videos/japanese_VHS1_homepage.mp4"
 
 const VideoContainer = () => {
   return (
@@ -19,7 +19,7 @@ const VideoContainer = () => {
       </video>
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 flex mt-20 flex-col items-center justify-center bg-opacity-50 text-white text-center px-4 z-10">
+      <div className="absolute inset-0 flex mt-20 flex-col items-center justify-center bg-opacity-50 text-[#16aa16] text-center px-4 z-10 font-home-video">
         <h1 className="text-4xl md:text-6xl font-bold">
           Welcome to BJJ Review
         </h1>

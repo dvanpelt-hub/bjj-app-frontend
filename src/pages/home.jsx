@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Welcome from "../components/Welcome";
 import Specialties from "../components/Specialties";
 import FeaturedCoaches from "../components/FeaturedCoaches";
-import CoachData from "../assets/bjj_coaches_with_pics.json";
+import CoachData from "../assets/sampleData/bjj_coaches_with_pics.json";
 import { setCoaches } from "../redux/slices/coachesSlice";
 import Login from "../components/Login";
 

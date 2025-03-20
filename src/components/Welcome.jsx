@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import VideoContainer from "./VideoContainer"
-import HomeLogo from "../assets/HomeLogo.png"
+import HomeLogo from "../assets/images/HomeLogo.png"
 
 const Welcome = () => {
   return (

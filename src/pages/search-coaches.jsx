@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import { Input, Tag } from "antd";
 import Header from "../components/Header";
 import CoachProfileCard from "../components/CoachProfileCard";
-import coachProfile from "../assets/coachProfile.png";
+import coachProfile from "../assets/images/coachProfile.png";
 
 const { Search } = Input;
 

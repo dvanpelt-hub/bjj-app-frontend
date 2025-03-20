@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "antd";
-import Coach from "../assets/coach.png";
+import Coach from "../assets/images/coach.png";
 
 const FeaturedCoaches = () => {
   return (
