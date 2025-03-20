@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between p-4">
       <Link to="/">
-        <h1 className="text-2xl text-white font-bold">BJJ APP</h1>
+        <h1 className="text-2xl text-white font-bold font-home-video">BJJ Review</h1>
       </Link>
       <UserOutlined />
     </div>

@@ -16,4 +16,5 @@
 
 .font-home-video-bold {
   font-family: 'HomeVideoBold', sans-serif;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* X-offset, Y-offset, blur-radius, color */
 }
