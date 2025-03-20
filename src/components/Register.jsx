@@ -29,23 +29,26 @@ const RegistrationForm = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("/api/v1/users");
-      const text = await response.text();
-      console.log('raw response', text)
+      const response = await fetch("/api/v1/users", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${yourJwtToken}`,
+          "Content-Type": "application/json",
+        },
+      });
       if (!response.ok) {
-        throw new Error("failed to fetch users")
-      } 
-      // const data = await response.json();
-      // console.log(data)
+        throw new Error("failed to fetch users");
+      }
+      const data = await response.json();
+      console.log(data);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchUsers()
-  }, [])
-
+    fetchUsers();
+  }, []);
 
   return (
     // when form complete, call onFinish to set redux
@@ -138,7 +141,7 @@ const RegistrationForm = () => {
         <Select
           defaultValue="student"
           placeholder="Select account type"
-          style={{ width: '100%' }}
+          style={{ width: "100%" }}
           options={[
             { value: "student", label: "Student" },
             { value: "coach", label: "Coach" },

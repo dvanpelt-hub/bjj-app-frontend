@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-import HomeLogo from "../assets/HomeLogo.png";
+import VideoContainer from "./VideoContainer"
+import HomeLogo from "../assets/HomeLogo.png"
 
 const Welcome = () => {
   return (
@@ -18,6 +19,7 @@ const Welcome = () => {
         </Button>
       </Link>
     </div>
+    // <VideoContainer/>
   );
 };
 
