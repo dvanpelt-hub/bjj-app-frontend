@@ -13,7 +13,7 @@ const VideoContainer = () => {
         loop
         muted
         playsInline
-        className="absolute top-80 left-1/2 w-auto -translate-x-1/2 -translate-y-1/2 object-cover z-0"
+        className="absolute top-80 left-1/2 w-95 -translate-x-1/2 -translate-y-1/2 object-cover z-0"
       >
         <source src={HomepageBanner} type="video/mp4" />
         Your browser does not support the video tag.
