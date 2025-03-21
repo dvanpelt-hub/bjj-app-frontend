@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../components/Header";
 import Welcome from "../components/Welcome";
 import Specialties from "../components/Specialties";
 import FeaturedCoaches from "../components/FeaturedCoaches";
@@ -9,7 +8,6 @@ import { setCoaches } from "../redux/slices/coachesSlice";
 import Login from "../components/Login";
 
 const home = () => {
-  const currentUser = useSelector((state) => state.currentUser.currentUser);
   const dispatch = useDispatch();
 
   const handleLoadCoachData = () => {
@@ -22,22 +20,13 @@ const home = () => {
 
   return (
     <div>
-       <>
+       {/* <>
           <Welcome />
           <Specialties />
           <FeaturedCoaches />
-        </>
-      {/* {currentUser.length > 0 ? (
-        <>
-          <Welcome />
-          <Specialties />
-          <FeaturedCoaches />
-        </>
-      ) : (
-        <>
+        </> */}
+    
           <Login />
-        </>
-      )} */}
     </div>
   );
 };
