@@ -1,5 +1,5 @@
 import React from "react";
-// import HomepageBanner from "../assets/b&w_homepage.mp4"
+// import HomepageBanner from "../assets/videos/b&w_homepage.mp4"
 // import HomepageBanner from "../assets/film1_homepage.mp4"
 import HomepageBanner from "../assets/videos/japanese_VHS1_homepage.mp4"
 import "./VideoContainer.css"
@@ -22,7 +22,7 @@ const VideoContainer = () => {
       {/* overlay */}
       <div className="absolute inset-0 flex mt-60 flex-col items-center justify-center bg-opacity-50 text-[#000000] text-center px-4 z-10 font-home-video-bold">
         <h1 className="text-4xl md:text-6xl font-bold">
-          Welcome to BJJ Review
+          Re:roll
         </h1>
         <p className="text-lg md:text-2xl mt-4">
           This is our tagline
