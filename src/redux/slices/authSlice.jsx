@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // thunk for loggin in
 export const loginUser = createAsyncThunk(
@@ -11,7 +11,10 @@ export const loginUser = createAsyncThunk(
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(credentials),
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
       });
       if (!response.ok) {
         const errorData = await response.json();
@@ -30,8 +33,8 @@ const authSlice = createSlice({
   initialState: {
     user: null,
     username: null,
-    id: null,
-    token: null,
+    user_id: null,
+    access_token: null,
     loading: false,
     error: null,
   },
@@ -39,9 +42,9 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.username = null;
-      state.id = null;
-      state.token = null;
-      localStorage.removeItem("token");
+      state.user_id = null;
+      state.access_token = null;
+      localStorage.removeItem("access_token");
       localStorage.removeItem("user");
     },
   },
@@ -53,13 +56,13 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
+        state.user = action.payload.user.email;
         state.username = action.payload.username;
-        state.id = action.payload.id;
-        state.token = action.payload.token;
+        state.user_id = action.payload.user.user_id;
+        state.access_token = action.payload.access_token;
         // storing jwt and user to local (persists across browser sessions)
-        localStorage.setItem("token", action.payload.token);
-        localStorage.setItem("user", JSON.stringify(action.payload.user));
+        localStorage.setItem("access_token", action.payload.access_token);
+        localStorage.setItem("user", JSON.stringify(action.payload.user.email));
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;

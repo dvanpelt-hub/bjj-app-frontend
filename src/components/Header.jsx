@@ -5,7 +5,7 @@ import { UserOutlined } from "@ant-design/icons";
 const Header = () => {
   return (
     <div className="flex items-center justify-between p-4">
-      <Link to="/">
+      <Link to="/home">
         <h1 className="text-2xl text-white font-bold font-home-video">BJJ Review</h1>
       </Link>
       <UserOutlined />

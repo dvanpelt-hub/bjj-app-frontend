@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Flex } from "antd";
+import { Button, Checkbox, Form, Input, Flex, Alert, message } from "antd";
+import { loginUser } from "../redux/slices/authSlice";
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loading, error, access_token } = useSelector((state) => state.auth);
 
   const onFinish = (values) => {
-    // dispatch asyncthunk to make API call and set user info in redux
+    // dispatch asyncthunk to make API call and set user info in redux from response
     dispatch(loginUser(values));
   };
+
+  useEffect(() => {
+    if (access_token) {
+      message.success("Login successful!");
+      navigate("/home");
+    }
+  }, [access_token, navigate]);
+
+  useEffect(() => {
+    if (error) {
+      message.error(error);
+    }
+  }, [error]);
 
   return (
     <>
@@ -28,11 +44,11 @@ const Login = () => {
         onFinish={onFinish}
       >
         <Form.Item
-          name="username"
+          name="email"
           rules={[
             {
               required: true,
-              message: "Please input your Username!",
+              message: "Please input your email!",
             },
           ]}
         >
