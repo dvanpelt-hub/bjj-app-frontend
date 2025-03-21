@@ -34,7 +34,7 @@ const authSlice = createSlice({
     user: null,
     username: null,
     user_id: null,
-    access_token: localStorage.getItem('access_token'), // persist across refresh
+    access_token: localStorage.getItem("access_token") || null, // persist across refresh
     loading: false,
     error: null,
   },
@@ -46,6 +46,9 @@ const authSlice = createSlice({
       state.access_token = null;
       localStorage.removeItem("access_token");
       localStorage.removeItem("user");
+    },
+    setToken: (state, action) => {
+      state.token = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -71,5 +74,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, setToken } = authSlice.actions;
 export default authSlice.reducer;
