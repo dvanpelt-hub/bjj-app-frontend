@@ -1,14 +1,14 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import filterReducer from "./slices/filterSlice";
-import currentUserReducer from "./slices/currentUserSlice";
 import selectedCoachReducer from "./slices/selectedCoachSlice";
-import coachesReducer from "./slices/coachesSlice"
+import coachesReducer from "./slices/coachesSlice";
+import authReducer from "./slices/authSlice";
 
 const rootReducer = combineReducers({
   filter: filterReducer,
-  currentUser: currentUserReducer,
   selectedCoach: selectedCoachReducer,
-  coaches: coachesReducer
+  coaches: coachesReducer,
+  auth: authReducer,
 });
 
 const store = configureStore({

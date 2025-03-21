@@ -1,15 +1,16 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser } from "../redux/slices/currentUserSlice";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Flex } from "antd";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const { loading, error } = useSelector((state) => state.auth);
+
   const onFinish = (values) => {
-    dispatch(setCurrentUser({ username: values.username }));
+    // dispatch asyncthunk to make API call and set user info in redux
+    dispatch(loginUser(values));
   };
 
   return (
@@ -52,6 +53,13 @@ const Login = () => {
             placeholder="Password"
           />
         </Form.Item>
+
+        {/* checks if an error occurs during login and displays alert */}
+        {error && (
+          <Form.Item>
+            <Alert message={error} type="error" showIcon />
+          </Form.Item>
+        )}
         <Form.Item>
           <Flex justify="space-between" align="center">
             <Form.Item name="remember" valuePropName="checked" noStyle>
@@ -62,7 +70,7 @@ const Login = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button block type="primary" htmlType="submit">
+          <Button block type="primary" htmlType="submit" loading={loading}>
             Log in
           </Button>
           or <Link to="/register">Register now!</Link>
