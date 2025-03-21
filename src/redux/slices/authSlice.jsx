@@ -34,7 +34,7 @@ const authSlice = createSlice({
     user: null,
     username: null,
     user_id: null,
-    access_token: null,
+    access_token: localStorage.getItem('access_token'), // persist across refresh
     loading: false,
     error: null,
   },
