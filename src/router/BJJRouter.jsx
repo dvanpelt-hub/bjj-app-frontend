@@ -10,10 +10,10 @@ import ProtectedRoute from "../components/ProtectedRoute";
 const BJJRouter = () => {
   return (
     <Routes>
-      <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
+      <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/search-coaches" element={<SearchCoaches />}></Route>
-      <Route path="/coach/:id" element={<Coach />}></Route>
+      <Route path="/search-coaches" element={<ProtectedRoute><SearchCoaches /></ProtectedRoute>}></Route>
+      <Route path="/coach/:id" element={<ProtectedRoute><Coach /></ProtectedRoute>}></Route>
       <Route path="/register" element={<Register />}></Route>
     </Routes>
   );
