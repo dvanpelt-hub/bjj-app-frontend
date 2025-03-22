@@ -1,25 +1,53 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getAllCoaches = createAsyncThunk(
-  "coaches/getAllCoaches"
-)
-
-const initialState = {
-  coaches: [], // default list of coaches
-};
+  "coaches/getAllCoaches",
+  async (thunkAPI) => {
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/api/v1/users/get_all_coaches`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        const errorData = await response.json();
+        return thunkAPI.rejectWithValue(
+          errorData || "Failed to retrieve coaches"
+        );
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue("Network error");
+    }
+  }
+);
 
 const coachesSlice = createSlice({
   name: "coaches",
-  initialState,
+  initialState: { coaches: [], loading: false, error: null },
   reducers: {
-    setCoaches: (state, action) => {
-      state.coaches = action.payload;
-    },
     clearCoaches: (state) => {
-      state.coaches = {};
+      state.coaches = [];
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(getAllCoaches.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    }).addCase(getAllCoaches.fulfilled, (state, action) => {
+      state.loading = false
+      state.coaches = action.payload;
+    }).addCase(getAllCoaches.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload || "Something went wrong";
+    })
+  }
 });
 
-export const { setCoaches, clearSelectedCoach } = coachesSlice.actions;
-export default coachesSlice.reducer
+export const { clearCoaches } = coachesSlice.actions;
+export default coachesSlice.reducer;
