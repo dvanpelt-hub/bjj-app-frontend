@@ -1,4 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const getAllCoaches = createAsyncThunk(
+  "coaches/getAllCoaches"
+)
 
 const initialState = {
   coaches: [], // default list of coaches

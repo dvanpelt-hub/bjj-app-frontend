@@ -3,13 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearFilter } from "../redux/slices/filterSlice";
 import { Link } from "react-router";
 import { Input, Tag } from "antd";
-import Header from "../components/Header";
 import CoachProfileCard from "../components/CoachProfileCard";
 import coachProfile from "../assets/images/coachProfile.png";
 
 const { Search } = Input;
 
-const SearchCoaches = () => {
+const searchCoaches = () => {
   const coachSpecialty = useSelector((state) => state.filter.specialty);
   const coaches = useSelector((state) => state.coaches.coaches);
   const dispatch = useDispatch();
@@ -85,4 +84,4 @@ const SearchCoaches = () => {
   );
 };
 
-export default SearchCoaches;
+export default searchCoaches;

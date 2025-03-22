@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const registerNewUser = createAsyncThunk(
-  "auth/registerNewUser", // prefix used for action type (below in extra reducer section)
+  "register/registerNewUser", // prefix used for action type (below in extra reducer section)
   async (userInfo, thunkAPI) => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/v1/users/create_user`, {
