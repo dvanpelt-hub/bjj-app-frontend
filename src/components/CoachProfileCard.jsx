@@ -12,7 +12,7 @@ const CoachProfileCard = (props) => {
     <Card
       className="!border-none !max-w-sm !mx-auto !bg-black !shadow-[-3px_3px_3px_1px_#616161] !rounded-2xl !overflow-hidden !text-white"
       key={id}
-      onClick={() => dispatch(setSelectedCoach(username))}
+      onClick={() => dispatch(setSelectedCoach(coachInfo.username))}
     >
       <div className="flex flex-col items-center p-6">
         <Avatar

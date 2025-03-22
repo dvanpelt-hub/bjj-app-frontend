@@ -7,7 +7,7 @@ import RequestModal from "./RequestModal"
 
 const CoachProfile = () => {
   const selectedCoach = useSelector((state) => state.selectedCoach.selectedCoach)
-console.log(selectedCoach)
+
   return (
     <div className="flex flex-col items-center justify-start min-h-screen bg-gray-900 text-white p-6 relative">
       <div className="absolute inset-0 bg-gradient-to-r from-slate-200 to-slate-900 opacity-20"></div>
