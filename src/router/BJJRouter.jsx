@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
 import SearchCoaches from "../pages/search-coaches";
 import Coach from "../pages/coach";
-import Register from "../components/Register";
-import Login from "../components/Login";
+import Register from "../pages/register";
+import Login from "../pages/login";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthChecker from "../utils/authChecker"
 

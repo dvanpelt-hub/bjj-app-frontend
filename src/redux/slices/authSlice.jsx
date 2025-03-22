@@ -3,7 +3,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // thunk for loggin in
 export const loginUser = createAsyncThunk(
-  "auth/loginUser",
+  "auth/loginUser", // prefix used for action type (below in extra reducer section)
   async (credentials, thunkAPI) => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/v1/auth/login`, {

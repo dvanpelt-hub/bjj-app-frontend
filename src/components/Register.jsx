@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import {useSelector, useDispatch} from "react-redux"
+import {useNavigate} from "react-router"
 import { Form, Input, Button, Select, DatePicker } from "antd";
 import AsyncSelect from "react-select/async";
+import { registerNewUser } from '../redux/slices/registerSlice';
 
 const fetchLocations = async (inputValue) => {
   if (!inputValue) return [];
@@ -23,32 +26,16 @@ const RegistrationForm = () => {
   const [form] = Form.useForm();
   const [location, setLocation] = useState(null);
 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  // const selector = useSelector()
+
+  // const { loading, success, error } = useSelector((state) => state.register);
+
   const onFinish = (values) => {
-    console.log("Form values:", values);
+    dispatch(registerNewUser(values));
+    navigate('/login');
   };
-
-  const fetchUsers = async () => {
-    try {
-      const response = await fetch("/api/v1/users", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${yourJwtToken}`,
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("failed to fetch users");
-      }
-      const data = await response.json();
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   return (
     // when form complete, call onFinish to set redux
@@ -58,7 +45,7 @@ const RegistrationForm = () => {
       onFinish={onFinish}
       style={{ color: "white", maxWidth: 320, margin: "auto" }}
     >
-      <Form.Item
+      {/* <Form.Item
         label={<span style={{ color: "white" }}>First name</span>}
         name="first_name"
         rules={[{ required: true, message: "Please enter your first name" }]}
@@ -72,9 +59,9 @@ const RegistrationForm = () => {
         rules={[{ required: true, message: "Please enter your last name" }]}
       >
         <Input placeholder="Enter your last name" />
-      </Form.Item>
+      </Form.Item> */}
 
-      <Form.Item
+      {/* <Form.Item
         label={<span style={{ color: "white" }}>Date of birth</span>}
         name="Age"
         rules={[{ required: true, message: "Please enter your date of birth" }]}
@@ -84,17 +71,7 @@ const RegistrationForm = () => {
           placeholder="Select date of birth"
           style={{ width: "100%" }}
         />
-      </Form.Item>
-
-      <Form.Item
-        label={<span style={{ color: "white" }}>Username</span>}
-        name="username"
-        rules={[{ required: true, message: "Please enter your username!" }]}
-        style={{ color: "white" }}
-      >
-        <Input placeholder="Enter username" />
-      </Form.Item>
-
+      </Form.Item> */}
       <Form.Item
         label={<span style={{ color: "white" }}>Email</span>}
         name="email"
@@ -109,7 +86,7 @@ const RegistrationForm = () => {
         <Input placeholder="Enter email" />
       </Form.Item>
 
-      <Form.Item
+       <Form.Item
         label={<span style={{ color: "white" }}>Password</span>}
         name="password"
         rules={[{ required: true, message: "Please enter your password!" }]}
@@ -117,7 +94,8 @@ const RegistrationForm = () => {
         <Input.Password placeholder="Enter password" />
       </Form.Item>
 
-      <Form.Item
+
+      {/* <Form.Item
         label={<span style={{ color: "white" }}>Location</span>}
         name="location"
       >
@@ -128,11 +106,11 @@ const RegistrationForm = () => {
           onChange={setLocation}
           placeholder="Search for a location"
         />
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item
         label={<span style={{ color: "white" }}>Account type</span>}
-        name="account"
+        name="role"
         rules={[
           { required: true, message: "Please select a type of account." },
         ]}
@@ -143,11 +121,20 @@ const RegistrationForm = () => {
           placeholder="Select account type"
           style={{ width: "100%" }}
           options={[
-            { value: "student", label: "Student" },
-            { value: "coach", label: "Coach" },
-            { value: "both", label: "Both" },
+            { value: "Student", label: "Student" },
+            { value: "Coach", label: "Coach" },
+            { value: "Both", label: "Both" },
           ]}
         />
+      </Form.Item>
+
+        <Form.Item
+        label={<span style={{ color: "white" }}>Username</span>}
+        name="username"
+        rules={[{ required: true, message: "Please enter your username!" }]}
+        style={{ color: "white" }}
+      >
+        <Input placeholder="Enter username" />
       </Form.Item>
 
       <Form.Item>

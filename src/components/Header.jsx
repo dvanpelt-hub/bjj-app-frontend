@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router";
 import { Dropdown, Avatar } from "antd";
-import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
+import { UserOutlined, LogoutOutlined, SettingOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
 
@@ -16,6 +16,16 @@ const Header = () => {
   };
 
   const menuItems = [
+    {
+      key: "myAccount",
+      icon: <UserOutlined />,
+      label: <span onClick={""}>My Profile</span>,
+    },
+    {
+      key: "settings",
+      icon: <SettingOutlined />,
+      label: <span onClick={""}>Settings</span>,
+    },
     {
       key: "logout",
       icon: <LogoutOutlined />,
