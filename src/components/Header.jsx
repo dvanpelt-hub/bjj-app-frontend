@@ -1,15 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router";
 import { Dropdown, Avatar } from "antd";
 import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../redux/slices/authSlice";
 
 const Header = () => {
-
-  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    // dispatch(logout());
+    dispatch(logout());
     navigate("/login");
   };
 

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setToken } from "../redux/slices/authSlice";
 
 const AuthChecker = () => {
+  // this component will be used for re-fresh token authentication
   const dispatch = useDispatch();
 
   // checks if access token (jwt) exists on initial app render
