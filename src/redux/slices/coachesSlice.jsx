@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const getAllCoaches = createAsyncThunk(
   "coaches/getAllCoaches",
   async (thunkAPI) => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/v1/users/get_all_coaches`,
+        `${API_BASE_URL}/api/v1/users/get_all_users`,
         {
           method: "GET",
           headers: {

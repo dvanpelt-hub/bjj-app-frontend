@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearFilter } from "../redux/slices/filterSlice";
 import { Link } from "react-router";
 import { Input, Tag } from "antd";
 import CoachProfileCard from "../components/CoachProfileCard";
 import coachProfile from "../assets/images/coachProfile.png";
+import { getAllCoaches } from "../redux/slices/coachesSlice";
 
 const { Search } = Input;
 
@@ -13,6 +14,13 @@ const searchCoaches = () => {
   const coaches = useSelector((state) => state.coaches.coaches);
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
+  const { access_token } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (access_token) { // is this needed?
+      dispatch(getAllCoaches())
+    }
+  }, [])
 
   const filteredCoaches =
     // checks search name, search category, or selected category
@@ -66,9 +74,9 @@ const searchCoaches = () => {
         <div className="grid grid-cols-2r sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredCoaches.length > 0 ? (
             filteredCoaches.map((coach) => (
-              <Link to={`/coach/${coach.uuid}`}>
+              <Link to={`/coach/${coach.user_id}`}>
                 <CoachProfileCard
-                  key={coach.uuid}
+                  key={coach.user_id}
                   image={coachProfile}
                   coachInfo={coach}
                 />
