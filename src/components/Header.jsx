@@ -36,8 +36,8 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between p-4">
       <Link to="/">
-        <h1 className="text-2xl text-white font-bold font-home-video">
-          Re:Roll
+        <h1 className="text-2xl text-white font-bold font-home-video italic">
+          Jiu Jitsu App
         </h1>
       </Link>
       <Dropdown

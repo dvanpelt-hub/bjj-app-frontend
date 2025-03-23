@@ -21,10 +21,10 @@ const VideoContainer = () => {
 
       {/* overlay */}
       <div className="absolute inset-0 flex mt-60 flex-col items-center justify-center bg-opacity-50 text-[#000000] text-center px-4 z-10 font-home-video-bold">
-        <h1 className="text-4xl md:text-6xl font-bold">
-          Re:roll
+        <h1 className="text-5xl md:text-6xl">
+          Jiu Jitsu App
         </h1>
-        <p className="text-lg md:text-2xl mt-4">
+        <p className="text-lg md:text-2xl mt-4 italic">
           This is our tagline
         </p>
       </div>

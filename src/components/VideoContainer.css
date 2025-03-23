@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 @font-face {
   font-family: 'HomeVideo';
   src: url('../assets/fonts/home-video-font/HomeVideo-BLG6G.ttf') format('truetype');
@@ -10,11 +11,19 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: 'Blade';
+  src: url('../assets/fonts/BLADRMF_.TTF') format('truetype');
+  font-weight: normal;
+}
+
+
 .font-home-video {
-  font-family: 'HomeVideo', sans-serif;
+  font-family: 'Blade', sans-serif;
+  text-shadow: 1px 1px 1px #ffffff;
 }
 
 .font-home-video-bold {
-  font-family: 'HomeVideoBold', sans-serif;
-  text-shadow: 2px 2px 2px rgb(255, 255, 255); /* X-offset, Y-offset, blur-radius, color */
+  font-family: 'Blade', sans-serif;
+  text-shadow: 2px 2px 2px #ffffff; /* X-offset, Y-offset, blur-radius, color */
 }
