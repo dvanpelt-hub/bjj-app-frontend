@@ -3,10 +3,10 @@ import { Link } from "react-router";
 import { Image, Row, Col } from "antd";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../redux/slices/filterSlice";
-import GiImage1 from "../assets/images/bjj_pics/gi-1.jpeg";
-import CompImage1 from "../assets/images/bjj_pics/comp_prep_1.jpg";
+import GiImage1 from "../assets/images/bjj_pics/adam_gi_5.jpeg";
+import CompImage1 from "../assets/images/bjj_pics/adam_gi_2.jpeg";
 import LegLocksImage1 from "../assets/images/bjj_pics/leg-lock-1.jpeg";
-import NoGiImage1 from "../assets/images/bjj_pics/no-gi-4.jpeg";
+import NoGiImage1 from "../assets/images/bjj_pics/adam_no_gi_1.jpeg";
 import CategoryCard from "./CategoryCard";
 
 const Specialties = () => {
