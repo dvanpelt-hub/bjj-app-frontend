@@ -11,29 +11,29 @@ const FeaturedCoaches = () => {
   return (
     <div className="mb-40">
       <h3 className="text-2xl mb-10">Featured Coaches</h3>
-      <Row gutter={20} justify="space-around" className="mb-12">
-        <Col className="gutter-row" span={20}>
+      <Row gutter={16} justify="space-around" className="mb-12">
+        <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
             <FeaturedCoachesCard coach={"Adam Hightower"} image={Coach1} />
           </Link>
         </Col>
       </Row>
-      <Row gutter={20} justify="space-around" className="mb-12">
-        <Col className="gutter-row" span={20}>
+      <Row gutter={16} justify="space-around" className="mb-12">
+        <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
             <FeaturedCoachesCard coach={"Ellis Adam"} image={Coach2} />
           </Link>
         </Col>
       </Row>
-      <Row gutter={20} justify="space-around" className="mb-12">
-        <Col className="gutter-row" span={20}>
+      <Row gutter={16} justify="space-around" className="mb-12">
+        <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
             <FeaturedCoachesCard coach={"Dark Hightower"} image={Coach3} />
           </Link>
         </Col>
       </Row>
-      <Row gutter={20} justify="space-around" className="mb-12">
-        <Col className="gutter-row" span={20}>
+      <Row gutter={16} justify="space-around" className="mb-12">
+        <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
             <FeaturedCoachesCard coach={"Ellis Chokem"} image={Coach4} />
           </Link>
