@@ -1,13 +1,18 @@
 import React from 'react';
 import { Card } from 'antd';
 const { Meta } = Card;
-const App = () => (
-  <Card
+import "./FeaturedCoachesCard.css"
+
+const FeaturedCoachesCard = (props) => {
+  return (
+ <Card
     hoverable
-    style={{ width: 240 }}
-    cover={<img alt="example" src="../assets/images/bjj_pics/" />}
+    style={{ width: '100%', backgroundColor: '#1c1c1c', border: 'none', color: 'white' }}
+    cover={<img alt="example" src={props.image} />}
   >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
+    <Meta title={props.coach} />
   </Card>
-);
-export default App;
+  )
+}
+ 
+export default FeaturedCoachesCard;
