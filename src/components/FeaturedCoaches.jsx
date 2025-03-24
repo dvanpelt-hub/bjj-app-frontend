@@ -6,7 +6,7 @@ const FeaturedCoaches = () => {
   return (
     <div>
       <h3>Featured Coaches</h3>
-      <ul className="flex justify-around">
+      <ul className="flex justify-around mb-30">
         <li className="bg-[#2C3033] m-2 text-sm">
           <Image src={Coach} />
         </li>

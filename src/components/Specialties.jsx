@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router";
-import { Image } from "antd";
+import { Image, Row, Col } from "antd";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../redux/slices/filterSlice";
-import Cat1 from "../assets/images/Cat1.png";
-import Cat2 from "../assets/images/Cat2.png";
-import Cat3 from "../assets/images/Cat3.png";
+import GiImage1 from "../assets/images/bjj_pics/gi-1.jpeg";
+import CompImage1 from "../assets/images/bjj_pics/comp_prep_1.jpg";
+import LegLocksImage1 from "../assets/images/bjj_pics/leg-lock-1.jpeg";
+import NoGiImage1 from "../assets/images/bjj_pics/no-gi-4.jpeg";
+import CategoryCard from "./CategoryCard";
 
 const Specialties = () => {
   const dispatch = useDispatch();
@@ -16,37 +18,37 @@ const Specialties = () => {
 
   return (
     <div>
-      <h3>Specialties</h3>
-      <ul className="flex justify-around">
-        <Link
-          to="/search-coaches"
-          className="bg-[#2C3033] m-2"
-          onClick={() => handleSpecialty("gi")}
-        >
-          <Image src={Cat1} className="w-full h-full"></Image>Gi
-        </Link>
-        <Link
-          to="/search-coaches"
-          className="bg-[#2C3033] m-2"
-          onClick={() => handleSpecialty("no-gi")}
-        >
-          <Image src={Cat2} className="w-full h-full"></Image>No-Gi
-        </Link>
-        <Link
-          to="/search-coaches"
-          className="bg-[#2C3033] m-2"
-          onClick={() => handleSpecialty("leg-locks")}
-        >
-          <Image src={Cat3} className="w-full h-full"></Image>Leg Locks
-        </Link>
-        <Link
-          to="/search-coaches"
-          className="bg-[#2C3033] m-2"
-          onClick={() => handleSpecialty("takedowns")}
-        >
-          <Image src={Cat1} className="w-full h-full"></Image>Takedowns
-        </Link>
-      </ul>
+      <h3 className="text-2xl mb-12">Specialties</h3>
+      <Row gutter={16} justify="space-around" className="mb-12">
+        <Col className="gutter-row" span={8}>
+          <Link to="/search-coaches" onClick={() => handleSpecialty("gi")}>
+            <CategoryCard image={GiImage1} title="Gi" />
+          </Link>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <Link
+            to="/search-coaches"
+            onClick={() => handleSpecialty("comp prep")}
+          >
+            <CategoryCard image={CompImage1} title="Comp prep" />
+          </Link>
+        </Col>
+      </Row>
+      <Row gutter={16} justify="space-around" className="mb-12">
+        <Col className="gutter-row" span={8}>
+          <Link
+            to="/search-coaches"
+            onClick={() => handleSpecialty("leg locks")}
+          >
+            <CategoryCard image={LegLocksImage1} title="Leg locks" />
+          </Link>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <Link to="/search-coaches" onClick={() => handleSpecialty("no gi")}>
+            <CategoryCard image={NoGiImage1} title="No-gi" />
+          </Link>
+        </Col>
+      </Row>
     </div>
   );
 };

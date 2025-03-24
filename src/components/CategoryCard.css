@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Blade';
+  src: url('./assets/fonts/BLADRMF_.TTF') format('truetype');
+  font-weight: normal;
+}
+
+.category-card-title {
+  color: white !important;
+  font-family: 'Blade' !important
+}
