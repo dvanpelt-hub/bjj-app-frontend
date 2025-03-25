@@ -6,6 +6,7 @@ import { Input, Tag } from "antd";
 import CoachProfileCard from "../components/CoachProfileCard";
 import coachProfile from "../assets/images/coachProfile.png";
 import { getAllCoaches } from "../redux/slices/coachesSlice";
+import sampleData from "../assets/sampleData/bjj_coaches_with_pics.json"
 
 const { Search } = Input;
 
@@ -17,27 +18,29 @@ const searchCoaches = () => {
   const { access_token } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (access_token) { // is this needed?
+    // if (access_token) { // is this needed?
       dispatch(getAllCoaches())
-    }
+    // }
   }, [])
+
+  console.log(sampleData)
 
   const filteredCoaches =
     // checks search name, search category, or selected category
     searchTerm.length > 0 || coachSpecialty.length > 0
-      ? coaches.filter(
+      ? sampleData.filter(
           (coach) =>
             (searchTerm.length > 0
               ? coach.name.toLowerCase().includes(searchTerm.toLowerCase())
               : null) ||
             (searchTerm.length > 0
-              ? coach.speciality.includes(searchTerm.toLowerCase())
+              ? coach.expertise.includes(searchTerm.toLowerCase())
               : null) ||
             (coachSpecialty.length > 0
-              ? coach.speciality.includes(coachSpecialty)
+              ? coach.expertise.includes(coachSpecialty)
               : null)
         )
-      : coaches;
+      : sampleData;
 
   const handleRemoveTag = () => {
     dispatch(clearFilter());

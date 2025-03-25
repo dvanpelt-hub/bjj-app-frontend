@@ -6,7 +6,7 @@ export const getAllCoaches = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/v1/users/get_all_users`,
+        `${API_BASE_URL}/api/v1/users/get_all_coaches`,
         {
           method: "GET",
           headers: {
