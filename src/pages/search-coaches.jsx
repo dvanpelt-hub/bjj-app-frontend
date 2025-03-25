@@ -23,12 +23,12 @@ const searchCoaches = () => {
     // }
   }, [])
 
-  console.log(sampleData)
+  console.log(coaches)
 
   const filteredCoaches =
     // checks search name, search category, or selected category
     searchTerm.length > 0 || coachSpecialty.length > 0
-      ? sampleData.filter(
+      ? coaches.filter(
           (coach) =>
             (searchTerm.length > 0
               ? coach.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -40,7 +40,7 @@ const searchCoaches = () => {
               ? coach.expertise.includes(coachSpecialty)
               : null)
         )
-      : sampleData;
+      : coaches;
 
   const handleRemoveTag = () => {
     dispatch(clearFilter());
