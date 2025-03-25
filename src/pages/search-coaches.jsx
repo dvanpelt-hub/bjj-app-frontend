@@ -6,7 +6,6 @@ import { Input, Tag } from "antd";
 import CoachProfileCard from "../components/CoachProfileCard";
 import coachProfile from "../assets/images/bjj_pics/adam_gi_4.jpeg";
 import { getAllCoaches } from "../redux/slices/coachesSlice";
-import sampleData from "../assets/sampleData/bjj_coaches_with_pics.json"
 
 const { Search } = Input;
 
@@ -15,7 +14,7 @@ const searchCoaches = () => {
   const coaches = useSelector((state) => state.coaches.coaches);
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  const { access_token } = useSelector((state) => state.auth);
+  // const { access_token } = useSelector((state) => state.auth);
 
   useEffect(() => {
     // if (access_token) { // is this needed?
@@ -28,16 +27,15 @@ const searchCoaches = () => {
     searchTerm.length > 0 || coachSpecialty.length > 0
       ? coaches.filter(
           (coach) =>
-            console.log(coach)
             (searchTerm.length > 0
-              ? coach.name.toLowerCase().includes(searchTerm.toLowerCase())
-              : null) ||
-            // (searchTerm.length > 0
+              ? coach.username.toLowerCase().includes(searchTerm.toLowerCase())
+              : null)
+            // || (searchTerm.length > 0
             //   ? coach.expertise.includes(searchTerm.toLowerCase())
             //   : null) ||
-            (coachSpecialty.length > 0
-              ? coach.expertise.includes(coachSpecialty)
-              : null)
+            // (coachSpecialty.length > 0
+            //   ? coach.expertise.includes(coachSpecialty)
+            //   : null)
         )
       : coaches;
 
