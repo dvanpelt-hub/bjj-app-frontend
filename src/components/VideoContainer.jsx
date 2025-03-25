@@ -1,6 +1,5 @@
 import React from "react";
-// import HomepageBanner from "../assets/videos/b&w_homepage.mp4"
-// import HomepageBanner from "../assets/film1_homepage.mp4"
+import {Link} from "react-router"
 import HomepageBanner from "../assets/videos/japanese_VHS1_homepage.mp4"
 import "./VideoContainer.css"
 
@@ -24,9 +23,7 @@ const VideoContainer = () => {
         <h1 className="text-5xl md:text-6xl">
           Jiu Jitsu App
         </h1>
-        <p className="text-lg md:text-2xl mt-4 italic">
-          This is our tagline
-        </p>
+        <Link to="/search-coaches">Find coaches</Link>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { Dropdown, Avatar } from "antd";
 import { UserOutlined, LogoutOutlined, SettingOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
+import HamburgerMenu from "./HamburgerMenu"
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ const Header = () => {
 
   return (
     <div className="flex items-center justify-between p-4">
+      <HamburgerMenu />
       <Link to="/">
         <h1 className="text-2xl text-white font-bold font-home-video italic">
           Jiu Jitsu App
