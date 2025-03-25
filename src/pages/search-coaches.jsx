@@ -4,7 +4,7 @@ import { clearFilter } from "../redux/slices/filterSlice";
 import { Link } from "react-router";
 import { Input, Tag } from "antd";
 import CoachProfileCard from "../components/CoachProfileCard";
-import coachProfile from "../assets/images/coachProfile.png";
+import coachProfile from "../assets/images/bjj_pics/adam_gi_4.jpeg";
 import { getAllCoaches } from "../redux/slices/coachesSlice";
 import sampleData from "../assets/sampleData/bjj_coaches_with_pics.json"
 
@@ -23,19 +23,18 @@ const searchCoaches = () => {
     // }
   }, [])
 
-  console.log(coaches)
-
   const filteredCoaches =
     // checks search name, search category, or selected category
     searchTerm.length > 0 || coachSpecialty.length > 0
       ? coaches.filter(
           (coach) =>
+            console.log(coach)
             (searchTerm.length > 0
               ? coach.name.toLowerCase().includes(searchTerm.toLowerCase())
               : null) ||
-            (searchTerm.length > 0
-              ? coach.expertise.includes(searchTerm.toLowerCase())
-              : null) ||
+            // (searchTerm.length > 0
+            //   ? coach.expertise.includes(searchTerm.toLowerCase())
+            //   : null) ||
             (coachSpecialty.length > 0
               ? coach.expertise.includes(coachSpecialty)
               : null)
