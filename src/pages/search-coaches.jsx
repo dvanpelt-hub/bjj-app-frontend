@@ -21,7 +21,7 @@ const searchCoaches = () => {
       dispatch(getAllCoaches())
     // }
   }, [])
-
+                  
   const filteredCoaches =
     // checks search name, search category, or selected category
     searchTerm.length > 0 || coachSpecialty.length > 0
@@ -30,12 +30,12 @@ const searchCoaches = () => {
             (searchTerm.length > 0
               ? coach.username.toLowerCase().includes(searchTerm.toLowerCase())
               : null)
-            // || (searchTerm.length > 0
-            //   ? coach.expertise.includes(searchTerm.toLowerCase())
-            //   : null) ||
-            // (coachSpecialty.length > 0
-            //   ? coach.expertise.includes(coachSpecialty)
-            //   : null)
+            || (searchTerm.length > 0
+              ? coach.expertise && coach.expertise.includes(searchTerm.toLowerCase())
+              : null) ||
+            (coachSpecialty.length > 0 && coach.expertise
+              ? coach.expertise.includes(coachSpecialty)
+              : null)
         )
       : coaches;
 
