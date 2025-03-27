@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router"
 import HomepageBanner from "../assets/videos/japanese_VHS1_homepage.mp4"
+import SeeCoachesButton from "./SeeCoachesButton"
 import "./VideoContainer.css"
 
 const VideoContainer = () => {
@@ -19,11 +20,11 @@ const VideoContainer = () => {
       </video>
 
       {/* overlay */}
-      <div className="absolute inset-0 flex mt-60 flex-col items-center justify-center bg-opacity-50 text-[#000000] text-center px-4 z-10 font-home-video-bold">
-        <h1 className="text-5xl md:text-6xl">
-          Jiu Jitsu App
-        </h1>
-        <Link to="/search-coaches">Find coaches</Link>
+      <div className="absolute inset-0 flex mt-60 flex-col items-center justify-center bg-opacity-50 text-[#ffffff] text-center px-4 z-10 font-home-video-bold">
+        <p className="text-lg font-bold m-3 italic">
+          Get feedback on your performance
+        </p>
+        <Link to="/search-coaches"><SeeCoachesButton /></Link>
       </div>
     </div>
   );
