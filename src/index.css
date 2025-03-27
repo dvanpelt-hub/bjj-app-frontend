@@ -3,13 +3,9 @@
 @import "@fontsource/roboto/400.css";
 @import "@fontsource/roboto/500.css";
 @import "@fontsource/roboto/700.css";
-@font-face {
-  font-family: 'Blade';
-  src: url('./assets/fonts/BLADRMF_.TTF') format('truetype');
-  font-weight: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 :root {
-  font-family: "Blade" !important;
+  font-family: "Orbitron" !important;
   line-height: 1.5;
   font-weight: 400;
 

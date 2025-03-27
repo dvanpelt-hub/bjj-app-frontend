@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
 .ant-card-meta-title, .ant-card-meta-description {
   color: white !important;
-  font-family: 'Blade'
+  font-family: "Orbitron"
 }

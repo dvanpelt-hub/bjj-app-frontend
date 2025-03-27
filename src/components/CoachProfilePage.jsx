@@ -9,13 +9,12 @@ const CoachProfile = () => {
   const selectedCoach = useSelector((state) => state.selectedCoach.selectedCoach)
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-900 text-white p-6 relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-200 to-slate-900 opacity-20"></div>
+    <div className="flex flex-col items-center justify-start min-h-screen text-white p-6 relative">
       <div className="relative w-full max-w-3xl text-center p-6">
         <div className="relative w-40 h-40 mx-auto mb-4">
           <Avatar size={160} src={coachProfile} className="border-4 border-white" />
         </div>
-        <h2 className="text-3xl font-bold">{selectedCoach.name}</h2>
+        <h2 className="text-3xl font-bold">{selectedCoach}</h2>
         <p className="text-gray-400 text-lg">Brazilian Jiu-Jitsu Coach</p>
         <div className="mt-4 text-gray-300 text-lg">
           <p>

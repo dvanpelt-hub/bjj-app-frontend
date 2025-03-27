@@ -22,7 +22,7 @@ const CoachProfileCard = (props) => {
           className="!border-2 !border-gray-300 !shadow-md"
         />
         <h2 className="text-xl font-semibold mt-4 text-white">{coachInfo.username}</h2>
-        <p className="text-white text-center mt-2 text-sm">{coachInfo.bio}</p>
+        <p className="text-white text-center mt-2 text-sm">{coachInfo.coach_bio}</p>
         <p>
           <b>Achievements:</b> {coachInfo.achievement}
         </p>

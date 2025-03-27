@@ -74,7 +74,7 @@ const searchCoaches = () => {
         <div className="grid grid-cols-2r sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredCoaches.length > 0 ? (
             filteredCoaches.map((coach) => (
-              <Link to={`/coach/${coach.user_id}`}>
+              <Link to={`/coach/${coach.username}`}>
                 <CoachProfileCard
                   key={coach.user_id}
                   image={coachProfile}
