@@ -6,7 +6,7 @@ export const getAllCoaches = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/v1/users/public/get_all_coaches`,
+        `https://sick-bjj-app.onrender.com/api/v1/users/public/get_all_coaches`,
         {
           method: "GET",
           headers: {
