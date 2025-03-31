@@ -27,7 +27,7 @@ const CoachProfileCard = (props) => {
           <b>Achievements:</b> {coachInfo.achievement}
         </p>
         <p>
-          <b>Speciality:</b> {coachInfo.speciality}
+          <b>Speciality:</b> {coachInfo.expertise.join(', ')}
         </p>
         <p>
           <b>Belt:</b> {coachInfo.belt}

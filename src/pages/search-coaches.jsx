@@ -39,7 +39,7 @@ const searchCoaches = () => {
         )
       : coaches;
 
-  const handleRemoveTag = () => {
+    const handleRemoveTag = () => {
     dispatch(clearFilter());
   };
 
