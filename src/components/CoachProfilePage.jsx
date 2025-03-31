@@ -27,7 +27,7 @@ const CoachProfile = () => {
         <h2 className="text-3xl font-bold">{selectedCoach.username}</h2>
         <p className="text-lg">Brazilian Jiu-Jitsu Coach</p>
 
-        <div className="mt-4 text-lg">
+        <div className="mt-4 text-sm">
           <p>{selectedCoach.coach_bio}</p>
         </div>
         <div className="flex flex-wrap justify-center mt-6 gap-3">

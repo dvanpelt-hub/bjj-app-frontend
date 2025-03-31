@@ -4,6 +4,7 @@ import Home from "../pages/home";
 import SearchCoaches from "../pages/search-coaches";
 import Coach from "../pages/coach";
 import Register from "../pages/register";
+import Requests from "../pages/requests";
 import Login from "../pages/login";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthChecker from "../utils/authChecker";
@@ -25,6 +26,7 @@ const BJJRouter = () => {
           }
         ></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/requests" element={<Requests />}></Route>
       </Routes>
     </>
   );

@@ -6,6 +6,7 @@ import {
   UserOutlined,
   LogoutOutlined,
   SettingOutlined,
+  InboxOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
@@ -17,7 +18,6 @@ const Header = () => {
   const navigate = useNavigate();
   const { access_token } = useSelector((state) => state.auth);
 
-
   const handleLogout = () => {
     dispatch(logout());
     navigate("/");
@@ -27,7 +27,12 @@ const Header = () => {
     {
       key: "myAccount",
       icon: <UserOutlined />,
-      label: <span onClick={""}>My Profile</span>,
+      label: <span onClick={() => navigate("/")}>My Profile</span>,
+    },
+    {
+      key: "myRequests",
+      icon: <InboxOutlined />,
+      label: <span onClick={() => navigate("/requests")}>My Requests</span>,
     },
     {
       key: "settings",
@@ -49,7 +54,7 @@ const Header = () => {
           Jiu Jitsu App
         </h1>
       </Link>
-      {access_token ? ( /* check if user is logged in to determine render */
+      {access_token /* check if user is logged in to determine render */ ? (
         <Dropdown
           menu={{ items: menuItems }}
           trigger={["click"]}

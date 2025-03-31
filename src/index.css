@@ -22,4 +22,6 @@
 body {
   margin: 0;
   min-width: 320px;
+  height: auto;
+  padding-bottom: 6rem;
 }
