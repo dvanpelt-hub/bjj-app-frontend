@@ -17,24 +17,18 @@ const CoachProfile = () => {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen text-white p-6 relative">
       <div className="relative w-full max-w-3xl text-center p-6">
-        <div className="relative w-40 h-40 mx-auto mb-4">
+        <div className="relative mx-auto mb-12">
           <Avatar
-            size={160}
+            size={240}
             src={coachProfile}
             className="border-4 border-white"
           />
         </div>
         <h2 className="text-3xl font-bold">{selectedCoach.username}</h2>
-        <p className="text-gray-400 text-lg">Brazilian Jiu-Jitsu Coach</p>
-        <div className="mt-4 text-gray-300 text-lg">
-          <p>Belt: {selectedCoach.belt_level}</p>
-        </div>
-        <div className="mt-4 text-gray-300 text-lg">
-          <p>Achievements: {selectedCoach.achievements}</p>
-        </div>
+        <p className="text-lg">Brazilian Jiu-Jitsu Coach</p>
 
-        <div className="mt-4 text-gray-300 text-lg">
-          <p>{selectedCoach.bio}</p>
+        <div className="mt-4 text-lg">
+          <p>{selectedCoach.coach_bio}</p>
         </div>
         <div className="flex flex-wrap justify-center mt-6 gap-3">
         {selectedCoach.expertise.length > 0 ? (
