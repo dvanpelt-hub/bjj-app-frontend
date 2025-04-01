@@ -6,22 +6,24 @@ import { Input, Tag } from "antd";
 import CoachProfileCard from "../components/CoachProfileCard";
 import coachProfile from "../assets/images/bjj_pics/adam_gi_4.jpeg";
 import { getAllCoaches } from "../redux/slices/coachesSlice";
+import Spinner from "../components/Spinner";
 
 const { Search } = Input;
 
 const searchCoaches = () => {
   const coachSpecialty = useSelector((state) => state.filter.specialty);
   const coaches = useSelector((state) => state.coaches.coaches);
+  const spinnerStatus = useSelector((state) => state.coaches.loading);
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   // const { access_token } = useSelector((state) => state.auth);
 
   useEffect(() => {
     // if (access_token) { // is this needed?
-      dispatch(getAllCoaches())
+    dispatch(getAllCoaches());
     // }
-  }, [])
-                  
+  }, []);
+
   const filteredCoaches =
     // checks search name, search category, or selected category
     searchTerm.length > 0 || coachSpecialty.length > 0
@@ -29,9 +31,10 @@ const searchCoaches = () => {
           (coach) =>
             (searchTerm.length > 0
               ? coach.username.toLowerCase().includes(searchTerm.toLowerCase())
-              : null)
-            || (searchTerm.length > 0
-              ? coach.expertise && coach.expertise.includes(searchTerm.toLowerCase())
+              : null) ||
+            (searchTerm.length > 0
+              ? coach.expertise &&
+                coach.expertise.includes(searchTerm.toLowerCase())
               : null) ||
             (coachSpecialty.length > 0 && coach.expertise
               ? coach.expertise.includes(coachSpecialty)
@@ -39,7 +42,7 @@ const searchCoaches = () => {
         )
       : coaches;
 
-    const handleRemoveTag = () => {
+  const handleRemoveTag = () => {
     dispatch(clearFilter());
   };
 
@@ -58,19 +61,22 @@ const searchCoaches = () => {
   };
 
   return (
-      <div className="max-w-4xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-4 text-center">Coach Listings</h1>
-        {/* Search Bar */}
-        <Search
-          placeholder="Search coaches..."
-          allowClear
-          enterButton="Search"
-          size="large"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="mb-6"
-        />
-        {renderTags(coachSpecialty)}
-        {/* coach Grid */}
+    <div className="max-w-4xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-4 text-center">Coach Listings</h1>
+      {/* Search Bar */}
+      <Search
+        placeholder="Search coaches..."
+        allowClear
+        enterButton="Search"
+        size="large"
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="mb-6"
+      />
+      {renderTags(coachSpecialty)}
+      {/* coach Grid */}
+      {spinnerStatus ? (
+        <Spinner />
+      ) : (
         <div className="grid grid-cols-2r sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredCoaches.length > 0 ? (
             filteredCoaches.map((coach) => (
@@ -88,7 +94,8 @@ const searchCoaches = () => {
             </p>
           )}
         </div>
-      </div>
+      )}
+    </div>
   );
 };
 
