@@ -4,9 +4,7 @@ import CoachProfilePage from "../components/CoachProfilePage";
 const Coach = () => {
 
   return (
-    <div>
       <CoachProfilePage />
-    </div>
   );
 };
 
