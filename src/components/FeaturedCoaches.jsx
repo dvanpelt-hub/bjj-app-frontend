@@ -14,28 +14,28 @@ const FeaturedCoaches = () => {
       <Row gutter={16} justify="space-around" className="mb-12">
         <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
-            <FeaturedCoachesCard coach={"Adam Hightower"} image={Coach1} />
+            <FeaturedCoachesCard coach={"Adam Hightower"} image={Coach1} color={'#1f2685'} />
           </Link>
         </Col>
       </Row>
       <Row gutter={16} justify="space-around" className="mb-12">
         <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
-            <FeaturedCoachesCard coach={"Ellis Adam"} image={Coach2} />
+            <FeaturedCoachesCard coach={"Ellis Adam"} image={Coach2} color={'#62109d'} />
           </Link>
         </Col>
       </Row>
       <Row gutter={16} justify="space-around" className="mb-12">
         <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
-            <FeaturedCoachesCard coach={"Dark Hightower"} image={Coach3} />
+            <FeaturedCoachesCard coach={"Dark Hightower"} image={Coach3} color={'#49170a'} />
           </Link>
         </Col>
       </Row>
       <Row gutter={16} justify="space-around" className="mb-12">
         <Col className="gutter-row" span={16}>
           <Link to="/search-coaches" onClick={() => handleSelectedCoach(val)}>
-            <FeaturedCoachesCard coach={"Ellis Chokem"} image={Coach4} />
+            <FeaturedCoachesCard coach={"Ellis Chokem"} image={Coach4} color={'black'} />
           </Link>
         </Col>
       </Row>
