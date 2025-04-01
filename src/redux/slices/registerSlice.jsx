@@ -5,7 +5,7 @@ export const registerNewUser = createAsyncThunk(
   "register/registerNewUser", // prefix used for action type (below in extra reducer section)
   async (userInfo, thunkAPI) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/v1/users/create_user`, {
+      const response = await fetch('https://sick-bjj-app.onrender.com/api/v1/users/create_user', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
