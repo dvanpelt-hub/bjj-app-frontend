@@ -24,44 +24,54 @@ const CoachProfile = () => {
             className="border-4 border-white"
           />
         </div>
-        <h2 className="text-3xl font-bold">{selectedCoach.username}</h2>
-        <p className="text-lg">Brazilian Jiu-Jitsu Coach</p>
+        {selectedCoach ? (
+          <>
+            <h2 className="text-3xl font-bold">{selectedCoach.username}</h2>
+            <p className="text-lg">Brazilian Jiu-Jitsu Coach</p>
 
-        <div className="mt-4 text-sm">
-          <p>{selectedCoach.coach_bio}</p>
-        </div>
-        <div className="flex flex-wrap justify-center mt-6 gap-3">
-        {selectedCoach.expertise.length > 0 ? (
-          selectedCoach.expertise.map((val) => {
-            return <Tag color="blue" key={val}>{val}</Tag>;
-          })
+            <div className="mt-4 text-sm">
+              <p>{selectedCoach.coach_bio}</p>
+            </div>
+            <div className="flex flex-wrap justify-center mt-6 gap-3">
+              {selectedCoach.expertise.length > 0 ? (
+                selectedCoach.expertise.map((val) => {
+                  return (
+                    <Tag color="blue" key={val}>
+                      {val}
+                    </Tag>
+                  );
+                })
+              ) : (
+                <Tag color="cyan">Competition Prep</Tag>
+              )}
+            </div>
+            <div className="mt-8 flex justify-center gap-6">
+              <Button
+                type="primary"
+                shape="circle"
+                icon={<MailOutlined />}
+                className="bg-blue-600"
+              />
+              <Button
+                type="primary"
+                shape="circle"
+                icon={<InstagramOutlined />}
+                className="bg-pink-600"
+              />
+              <Button
+                type="primary"
+                shape="circle"
+                icon={<PhoneOutlined />}
+                className="bg-green-600"
+              />
+            </div>
+            <div>
+              <RequestModal />
+            </div>
+          </>
         ) : (
-          <Tag color="cyan">Competition Prep</Tag>
+          <div>Error loading coach data</div>
         )}
-        </div>
-        <div className="mt-8 flex justify-center gap-6">
-          <Button
-            type="primary"
-            shape="circle"
-            icon={<MailOutlined />}
-            className="bg-blue-600"
-          />
-          <Button
-            type="primary"
-            shape="circle"
-            icon={<InstagramOutlined />}
-            className="bg-pink-600"
-          />
-          <Button
-            type="primary"
-            shape="circle"
-            icon={<PhoneOutlined />}
-            className="bg-green-600"
-          />
-        </div>
-        <div>
-          <RequestModal />
-        </div>
       </div>
     </div>
   );
