@@ -1,25 +1,35 @@
-import React from 'react';
-import { UploadOutlined } from '@ant-design/icons';
-import { Button, Upload } from 'antd';
-
+import React from "react";
+import { UploadOutlined } from "@ant-design/icons";
+import { Button, message, Upload } from "antd";
 const props = {
-  // action: '//jsonplaceholder.typicode.com/posts/',
-  // listType: 'picture',
-  // async previewFile(file) {
-    // console.log('Your upload file:', file);
-    // Your process logic. Here we just mock to the same file
-    // const res = await fetch('https://next.json-generator.com/api/json/get/4ytyBoLK8', {
-    //   method: 'POST',
-    //   body: file,
-    // });
-    // const { thumbnail } = await res.json();
-    // return thumbnail;
-  // },
+  name: "file",
+  // No real endpoint needed anymore
+  customRequest({ file, onSuccess, onError }) {
+    // Simulate async upload
+    setTimeout(() => {
+      // Call onSuccess to tell antd "upload finished"
+      onSuccess('ok');
+      // Optional: show a message here instead of in onChange
+      message.success(`${file.name} file uploaded successfully (mock)`);
+    }, 500);
+  },
+  headers: {
+    authorization: "authorization-text",
+  },
+  onChange(info) {
+    if (info.file.status !== "uploading") {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === "done") {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === "error") {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
 };
-
 const VideoUpload = () => (
   <Upload {...props}>
-    <Button icon={<UploadOutlined />}>Upload</Button>
+    <Button icon={<UploadOutlined />}>Click to Upload</Button>
   </Upload>
 );
 export default VideoUpload;

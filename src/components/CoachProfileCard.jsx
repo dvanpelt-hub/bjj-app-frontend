@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { getSelectedCoach } from "../redux/slices/selectedCoachSlice";
+import { setSelectedCoach } from "../redux/slices/selectedCoachSlice";
 import { Card, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
@@ -8,11 +8,15 @@ const CoachProfileCard = (props) => {
   const { image, id, coachInfo } = props;
   const dispatch = useDispatch()
 
+  const handleSetSelectedCoach = (coach) => {
+    dispatch(setSelectedCoach(coach))
+  }
+
   return (
     <Card
       className="!border-none !max-w-sm !mx-auto !bg-black !shadow-[-3px_3px_3px_1px_#616161] !rounded-2xl !overflow-hidden !text-white"
       key={id}
-      onClick={() => dispatch(getSelectedCoach(coachInfo.username))}
+      onClick={() => handleSetSelectedCoach(coachInfo)}
     >
       <div className="flex flex-col items-center p-6">
         <Avatar

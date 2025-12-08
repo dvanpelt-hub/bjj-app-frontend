@@ -11,8 +11,10 @@ import RequestModal from "./RequestModal";
 
 const CoachProfile = () => {
   const selectedCoach = useSelector(
-    (state) => state.selectedCoach.selectedCoach
+    (state) => state.selectedCoach.coach
   );
+
+  console.log('selected coach', selectedCoach)
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen text-white p-6 relative">
@@ -33,7 +35,7 @@ const CoachProfile = () => {
               <p>{selectedCoach.coach_bio}</p>
             </div>
             <div className="flex flex-wrap justify-center mt-6 gap-3">
-              {selectedCoach.expertise.length > 0 ? (
+              {/* {selectedCoach.expertise.length > 0 ? (
                 selectedCoach.expertise.map((val) => {
                   return (
                     <Tag color="blue" key={val}>
@@ -43,7 +45,7 @@ const CoachProfile = () => {
                 })
               ) : (
                 <Tag color="cyan">Competition Prep</Tag>
-              )}
+              )} */}
             </div>
             <div className="mt-8 flex justify-center gap-6">
               <Button

@@ -16,7 +16,7 @@ const FeaturedCoaches = () => {
 
   const handleSelectedCoach = (username) => {
     dispatch(getSelectedCoach(username))
-    // navigate(`/coach/${username}`);
+    navigate(`/coach/${username}`);
   };
 
   return (

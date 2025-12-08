@@ -82,7 +82,7 @@ const searchCoaches = () => {
             filteredCoaches.map((coach) => (
               <Link to={`/coach/${coach.username}`} key={coach.user_id}>
                 <CoachProfileCard
-                  key={coach.user_id}
+                  key={coach.username}
                   image={coachProfile}
                   coachInfo={coach}
                 />
