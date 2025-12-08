@@ -14,7 +14,7 @@ const CoachProfileCard = (props) => {
 
   return (
     <Card
-      className="!border-none !max-w-sm !mx-auto !bg-black !shadow-[-3px_3px_3px_1px_#616161] !rounded-2xl !overflow-hidden !text-white"
+      className="!border-0 !max-w-sm !mx-auto !bg-[#1c1c1c] !rounded-2xl !overflow-hidden !text-white"
       key={id}
       onClick={() => handleSetSelectedCoach(coachInfo)}
     >

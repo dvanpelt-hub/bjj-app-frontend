@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Drawer, Button, Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import "./HamburgerMenu.css"
 
 const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
@@ -37,12 +38,14 @@ const HamburgerMenu = () => {
 
       <Drawer
         title="Menu"
+        className="!bg-[#1c1c1c] !text-white" 
         placement="left"
         onClose={closeDrawer}
         open={open}
       >
         <Menu 
-          mode="inline" 
+          mode="inline"
+          className="!bg-[#1c1c1c] !text-white" 
           onClick={handleMenuClick}
           items={[
             { key: '1', label: 'Home' },
