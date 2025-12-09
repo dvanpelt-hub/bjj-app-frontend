@@ -18,7 +18,7 @@ const Specialties = () => {
 
   return (
     <div>
-      <h3 className="text-2xl mb-12">Specialties</h3>
+      <h3 className="text-2xl mb-12 mx-12 font-bold">Find coaches based on specialties</h3>
       <Row gutter={16} justify="space-around" className="mb-12">
         <Col className="gutter-row" span={8}>
           <Link to="/search-coaches" onClick={() => handleSpecialty("gi")}>

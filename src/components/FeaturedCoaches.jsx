@@ -21,7 +21,7 @@ const FeaturedCoaches = () => {
 
   return (
     <div className="mb-10">
-      <h3 className="text-2xl mb-10">Featured Coaches</h3>
+      <h3 className="text-2xl mb-10 font-bold">Featured Coaches</h3>
       <Row gutter={16} justify="space-around" className="mb-12">
         <Col className="gutter-row" span={16}>
           <div onClick={() => handleSelectedCoach("CrisCyborg_26")}>
