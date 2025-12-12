@@ -20,6 +20,7 @@ export const loginUser = createAsyncThunk(
         return thunkAPI.rejectWithValue(errorData || "Login failed");
       }
       const data = await response.json();
+      console.log('data', data)
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue("Network error");

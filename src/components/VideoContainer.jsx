@@ -1,4 +1,3 @@
-import React from "react";
 import {Link} from "react-router"
 import HomepageBanner from "../assets/videos/homepage_movie.mp4"
 import SeeCoachesButton from "./SeeCoachesButton"
