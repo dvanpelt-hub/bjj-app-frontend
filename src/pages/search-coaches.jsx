@@ -24,6 +24,12 @@ const searchCoaches = () => {
     // }
   }, []);
 
+  useEffect(() => {
+    return () => {
+      dispatch(clearFilter());
+    }
+  }, [dispatch])
+
   const filteredCoaches =
     // checks search name, search category, or selected category
     searchTerm.length > 0 || coachSpecialty.length > 0
