@@ -19,7 +19,7 @@ const VideoContainer = () => {
       </video>
 
       {/* overlay */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center bg-opacity-50 text-[#ffffff] text-center px-4 z-10 font-home-video-bold">
+      <div className="absolute mt-55 flex flex-col items-center justify-center bg-opacity-50 text-[#ffffff] text-center px-4 z-10 font-home-video-bold">
         <p className="text-3xl font-bold m-3 italic">
           Get feedback on your performance
         </p>
