@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
 import { Dropdown, Avatar } from "antd";
@@ -27,7 +26,7 @@ const Header = () => {
     {
       key: "myAccount",
       icon: <UserOutlined />,
-      label: <span onClick={() => navigate("/")}>My Profile</span>,
+      label: <span onClick={() => navigate("/my-account")}>My Account</span>,
     },
     {
       key: "myRequests",

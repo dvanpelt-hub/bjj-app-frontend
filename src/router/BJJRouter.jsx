@@ -7,6 +7,7 @@ import Contact from "../pages/contact";
 import Register from "../pages/register";
 import Requests from "../pages/requests";
 import Login from "../pages/login";
+import MyAccount from "../pages/myAccount";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthChecker from "../utils/authChecker";
 
@@ -30,6 +31,7 @@ const BJJRouter = () => {
         ></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/requests" element={<Requests />}></Route>
+        <Route path="/my-account" element={<MyAccount />}></Route>
       </Routes>
     </>
   );
