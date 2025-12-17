@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const registerNewUser = createAsyncThunk(
   "register/registerNewUser", // prefix used for action type (below in extra reducer section)
   async (userInfo, thunkAPI) => {
     try {
       const response = await fetch('https://sick-bjj-app.onrender.com/api/v1/users/create_user', {
+      // const response = await fetch('http://127.0.0.1:8000/api/v1/users/create_user', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -15,6 +15,8 @@ export const registerNewUser = createAsyncThunk(
           password: userInfo.password,
           role: userInfo.role,
           username: userInfo.username,
+          expertise: [userInfo.expertise],
+          affiliations: [],
         }),
       });
       if (!response.ok) {
@@ -24,6 +26,7 @@ export const registerNewUser = createAsyncThunk(
         );
       }
       const data = await response.json();
+      console.log('data', data)
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue("Network error");

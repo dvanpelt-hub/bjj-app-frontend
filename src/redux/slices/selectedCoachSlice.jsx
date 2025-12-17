@@ -6,11 +6,11 @@ export const getSelectedCoach = createAsyncThunk(
     try {
       const access_token = localStorage.getItem("access_token");
       const response = await fetch(
-        `https://sick-bjj-app.onrender.com/api/v1/users/public/coach/${username}`,
+        `https://sick-bjj-app.onrender.com/api/v1/users/authorised/coach/${username}`,
+        // `http://127.0.0.1:8000/api/v1/users/authorised/coach/${username}`,
         {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
             Authorization: `Bearer ${access_token}`,
           },
         }

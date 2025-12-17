@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearFilter } from "../redux/slices/filterSlice";
 import { Link } from "react-router";
 import { Input, Tag } from "antd";
 import CoachProfileCard from "../components/CoachProfileCard";
-import coachProfile from "../assets/images/bjj_pics/adam_gi_4.jpeg";
+import coachImage1 from "../assets/images/bjj_pics/adam_gi_4.jpeg";
 import { getAllCoaches } from "../redux/slices/coachesSlice";
 import Spinner from "../components/Spinner";
 
@@ -83,7 +83,7 @@ const searchCoaches = () => {
               <Link to={`/coach/${coach.username}`} key={coach.user_id}>
                 <CoachProfileCard
                   key={coach.username}
-                  image={coachProfile}
+                  image={coachImage1}
                   coachInfo={coach}
                 />
               </Link>

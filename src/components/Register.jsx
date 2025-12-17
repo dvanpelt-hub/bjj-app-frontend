@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {useSelector, useDispatch} from "react-redux"
-import {useNavigate} from "react-router"
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { Form, Input, Button, Select, DatePicker } from "antd";
 import AsyncSelect from "react-select/async";
-import { registerNewUser } from '../redux/slices/registerSlice';
+import { registerNewUser } from "../redux/slices/registerSlice";
 
 const fetchLocations = async (inputValue) => {
   if (!inputValue) return [];
@@ -25,16 +25,21 @@ const RegistrationForm = () => {
   // provide access to form instance and built-in methods
   const [form] = Form.useForm();
   const [location, setLocation] = useState(null);
+  const [accountType, setAccountType] = useState(null);
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const selector = useSelector()
 
   // const { loading, success, error } = useSelector((state) => state.register);
 
   const onFinish = (values) => {
     dispatch(registerNewUser(values));
-    navigate('/login');
+    navigate("/login");
+  };
+
+  const handleSetAccountType = (value) => {
+    setAccountType(value);
   };
 
   return (
@@ -86,14 +91,13 @@ const RegistrationForm = () => {
         <Input placeholder="Enter email" />
       </Form.Item>
 
-       <Form.Item
+      <Form.Item
         label={<span style={{ color: "white" }}>Password</span>}
         name="password"
         rules={[{ required: true, message: "Please enter your password!" }]}
       >
         <Input.Password placeholder="Enter password" />
       </Form.Item>
-
 
       {/* <Form.Item
         label={<span style={{ color: "white" }}>Location</span>}
@@ -125,10 +129,11 @@ const RegistrationForm = () => {
             { value: "Coach", label: "Coach" },
             { value: "Both", label: "Both" },
           ]}
+          onChange={handleSetAccountType}
         />
       </Form.Item>
 
-        <Form.Item
+      <Form.Item
         label={<span style={{ color: "white" }}>Username</span>}
         name="username"
         rules={[{ required: true, message: "Please enter your username!" }]}
@@ -136,6 +141,29 @@ const RegistrationForm = () => {
       >
         <Input placeholder="Enter username" />
       </Form.Item>
+
+      {accountType === "Coach" || accountType === "Both" ? (
+        <Form.Item
+          label={<span style={{ color: "white" }}>Area(s) of expertise</span>}
+          name="expertise"
+          rules={[
+            { required: true, message: "Please select area(s) of expertise." },
+          ]}
+          style={{ color: "white" }}
+        >
+          <Select
+            defaultValue="Make a selection"
+            placeholder="Make a selection"
+            style={{ width: "100%" }}
+            options={[
+              { value: "gi", label: "Gi" },
+              { value: "nogi", label: "No-gi" },
+              { value: "leglocks", label: "Leg locks" },
+              { value: "comp", label: "Comp prep" },
+            ]}
+          />
+        </Form.Item>
+      ) : null}
 
       <Form.Item>
         <Button type="primary" htmlType="submit">

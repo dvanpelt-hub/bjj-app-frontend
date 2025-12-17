@@ -6,7 +6,8 @@ export const getAllCoaches = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const response = await fetch(
-        `https://sick-bjj-app.onrender.com/api/v1/users/public/get_all_coaches`,
+        `http://127.0.0.1:8000/api/v1/users/public/get_all_coaches`,
+        //'https://sick-bjj-app.onrender.com/api/v1/users/public/get_all_coaches',
         {
           method: "GET",
           headers: {

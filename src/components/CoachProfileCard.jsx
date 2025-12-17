@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { setSelectedCoach } from "../redux/slices/selectedCoachSlice";
 import { Card, Avatar } from "antd";
