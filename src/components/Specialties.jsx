@@ -44,7 +44,7 @@ const Specialties = () => {
           </Link>
         </Col>
         <Col className="gutter-row" span={8}>
-          <Link to="/search-coaches" onClick={() => handleSpecialty("no gi")}>
+          <Link to="/search-coaches" onClick={() => handleSpecialty("nogi")}>
             <CategoryCard image={NoGiImage1} title="No-gi" color={'#49170a'} />
           </Link>
         </Col>
