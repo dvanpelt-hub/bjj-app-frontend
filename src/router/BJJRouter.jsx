@@ -3,6 +3,7 @@ import Home from "../pages/home";
 import SearchCoaches from "../pages/search-coaches";
 import Coach from "../pages/coach";
 import About from "../pages/about";
+import Contact from "../pages/contact";
 import Register from "../pages/register";
 import Requests from "../pages/requests";
 import Login from "../pages/login";
@@ -17,6 +18,7 @@ const BJJRouter = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
         <Route path="/search-coaches" element={<SearchCoaches />}></Route>
         <Route
           path="/coach/:id"
