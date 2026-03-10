@@ -47,7 +47,7 @@ const Header = () => {
 
   return (
     <div className="flex items-center justify-between p-4">
-      <HamburgerMenu />
+      {access_token ? <HamburgerMenu /> : null}
       <Link to="/">
         <h1 className="text-2xl text-white font-bold font-home-video italic">
           Jiu Jitsu App
